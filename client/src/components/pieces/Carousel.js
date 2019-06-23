@@ -6,13 +6,14 @@ import '../../css/Carousel.css';
 
 class Carousel extends Component {
 	componentDidMount(){
-		document.addEventListener('DOMContentLoaded', function() {
-	       var elems = document.querySelectorAll('.carousel');
-		   var options = {
-			   indicators: true
-		   };
-	       var instances = M.Carousel.init(elems, options);
-  		});
+		// document.addEventListener('DOMContentLoaded', function() {
+	    //    var elems = document.querySelectorAll('.carousel');
+		//    var options = {
+		// 	   indicators: true
+		//    };
+	    //    var instances = M.Carousel.init(elems, options);
+  		// });
+		M.AutoInit();
 	}
 	render(){
 		return(

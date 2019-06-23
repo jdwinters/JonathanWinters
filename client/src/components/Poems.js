@@ -7,12 +7,13 @@ import '../css/Poems.css';
 //Make Resume Downloadable
 class Poems extends Component {
 	componentDidMount(){
-		document.addEventListener('DOMContentLoaded', function() {
-	       var elems = document.querySelectorAll('.collapsible');
-		   var options = {
-		   };
-	       var instances = M.Collapsible.init(elems, options);
-  		});
+		// document.addEventListener('DOMContentLoaded', function() {
+	    //    var elems = document.querySelectorAll('.collapsible');
+		//    var options = {
+		//    };
+	    //    var instances = M.Collapsible.init(elems, options);
+  		// });
+		M.AutoInit();
 	}
 	render(){
 		return(
