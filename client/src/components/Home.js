@@ -10,7 +10,7 @@ class Home extends Component{
 	    var elems = document.querySelectorAll('.parallax');
 		var options = {};
 	    var instances = M.Parallax.init(elems, options);
-  	});
+  		});
 	}
 	render(){
 		return(

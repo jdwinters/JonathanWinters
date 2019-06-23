@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 //Basically an About Me Page
-const About = () => {
-	return(
-		<div className="center">
-			<h2  style={{color: 'white'}}>Hi There</h2>
-		</div>
-	);
+class About extends Component {
+	render(){
+		return(
+			<div className="center">
+				<h2  style={{color: 'white'}}>Hi There</h2>
+			</div>
+		);
+	}
 };
 
 export default About;

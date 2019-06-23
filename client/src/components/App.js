@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './pieces/Header';
-import Footer from './pieces/Footer';
 import Home from './Home';
 import ArtGallery from './ArtGallery';
 import DevGallery from './DevGallery';
