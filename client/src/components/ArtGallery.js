@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import Carousel from './pieces/Carousel';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import ArtCarousel from "./pieces/ArtCarousel";
 
 class ArtGallery extends Component {
-	render(){
-		return(
-			<Carousel className="center"/>
-		);
-	}
-};
+
+  render() {
+    return(
+        <ArtCarousel className="center" />
+    ); 
+  }
+}
 
 export default ArtGallery;

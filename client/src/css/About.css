@@ -1,0 +1,5 @@
+#aboutComponent .row .col{
+    float: none !important;
+    margin-left: auto;
+    margin-right: auto;
+}

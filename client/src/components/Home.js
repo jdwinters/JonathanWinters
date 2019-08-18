@@ -1,41 +1,46 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import M from "materialize-css";
+import ArtGallery from "./ArtGallery";
+import DevGallery from "./DevGallery";
+import Contact from "./Contact";
+import PoemCarousel from "./pieces/PoemCarousel"
+import ArtCarousel from "./pieces/ArtCarousel"
+import About from "./About";
+import Header from "./pieces/Header";
+import Parallax from "./pieces/Parallax";
 import '../css/Home.css';
+
 
 //Basically an About Me Page
 class Home extends Component{
-	componentDidMount(){
-		document.addEventListener('DOMContentLoaded', function() {
-	    var elems = document.querySelectorAll('.parallax');
-		var options = {};
-	    var instances = M.Parallax.init(elems, options);
-  		});
-	}
+	
 	render(){
 		return(
 			<div>
-				<div class="parallax-container">
-					<p class="white-text right-align header">
-						some fucking words
-					</p>
-					<div class="valign-wrapper h100">
-						<h1 class=" white-text overlay center-align">
-							Another set of fucking words
-						</h1>
-			    		<div class="parallax">
-							<img src="https://pbs.twimg.com/media/B2XTRwtCAAEnqlP.jpg:large" />
-						</div>
-					</div>
-			    </div>
-			      <div class="row container">
-			        <h2 class="white-text header">Parallax</h2>
-			        <p class="white-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
-			      </div>
-			    <div class="parallax-container">
-			      <div class="parallax"><img src="https://pbs.twimg.com/media/B2XTRwtCAAEnqlP.jpg:large"/></div>
-			    </div>
+				
+				<Header />
+				<div id="about">
+					<Parallax scrollTitle={"About"} logoInstance={"https://i.imgur.com/4f4oiHj.png"}/>
+				</div>
+				<About />
+				<div id="devgallery">
+					<Parallax scrollTitle={"Development Gallery"} logoInstance={"https://i.imgur.com/iqqIWfC.png"} />
+				</div>
+				<DevGallery />
+				<div id="artgallery">
+					<Parallax scrollTitle={"Poems"} logoInstance={"https://i.imgur.com/iqqIWfC.png"} />
+				</div>
+				<ArtGallery />
+				<div id="poems">
+					<Parallax scrollTitle={"Poems"} logoInstance={"https://i.imgur.com/iqqIWfC.png"} />
+				</div>
+				<PoemCarousel />
+				<div id="contact">
+					<Parallax scrollTitle={"Contact"} logoInstance={"https://i.imgur.com/iqqIWfC.png"} />
+				</div>
+				<Contact />
 			</div>
+			
+			
 
 		);
 	}

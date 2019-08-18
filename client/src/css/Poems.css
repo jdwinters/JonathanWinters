@@ -1,3 +1,6 @@
 .collapsible-body {
 	color: white;
 }
+.no-shadows {
+    box-shadow: none!important;
+}

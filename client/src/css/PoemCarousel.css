@@ -1,0 +1,15 @@
+#poemCarousel{
+    top: -150px;
+    padding: 0px;
+    margin: 0px;
+    
+}
+#poemCarousel .carousel-item{
+    height: 300px;
+}
+.carousel-indicators .active {
+    width: 48px;
+    height: 48px;
+    margin: 10px;
+    background-color: #ffff99;
+}

@@ -1,0 +1,26 @@
+.no-shadows {
+    box-shadow: none!important;
+}
+body{
+    margin: 0;
+}
+a {
+    color: #FFF;
+}
+a:hover {
+    color: #f7f4e3;
+}
+#devCarousel{
+    top: -120px;
+    height: 350px;
+}
+.carousel-card{
+    background-color: #121716;
+    max-width: 200px;
+    min-height: 350px;
+    
+
+}
+.carousel-card-content{
+    color: #592A2A;
+}

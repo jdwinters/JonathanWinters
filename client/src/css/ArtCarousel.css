@@ -1,0 +1,12 @@
+#artCarousel{
+    top: -134px;
+    padding: 0px;
+	margin: 0px;
+}
+.indicators{
+	visibility: hidden;
+}
+
+#artCarousel img{
+	min-height: 134px;
+}
