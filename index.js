@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
 const nodemailer = require('nodemailer');
-const creds = require('./config/config');
+var creds;
 
 const passport = require("passport");
 
@@ -21,12 +21,16 @@ app.set('view engine', 'handlebars');
 // Static folder for 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
-
+  creds = {
+    USER: process.env.USER,
+    PASS: process.env.PASS
+  };
   const path = require("path");
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }else{
+  creds = require('./config/config');
   const path = require("path");
   app.use('./client/public', express.static(path.join(__dirname, 'public')));
 }
