@@ -85,6 +85,7 @@ app.post("/send", (req, res) => {
         res.json({
           msg: 'success'
         })
+        res.send({ hello: 'world' });
       }
     });
 });
