@@ -1,0 +1,11 @@
+
+#artModal1 img{
+    max-width: 300px;
+    max-height: 200px
+}
+@media  only screen and (min-width: 900px){
+    #artModal1 img{
+        min-width: 600px;
+        min-height: 400px;
+    }
+}

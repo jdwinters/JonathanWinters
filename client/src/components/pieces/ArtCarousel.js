@@ -12,7 +12,9 @@ class ArtCarousel extends Component {
     something(holdingImg){
         this.setState({holdImg: holdingImg });
     }
-    
+    forcedResizing(){
+		this.forceUpdate();
+	}
 	componentDidMount(){  
         const that = this;
 		document.addEventListener('DOMContentLoaded', function() {
@@ -30,12 +32,17 @@ class ArtCarousel extends Component {
            };
            
 	       var artInstances = M.Carousel.init(elems, options);
-          });
-    }
+		  });
+		  window.addEventListener("resize", that.forcedResizing());
+	}
+	componentWillUnmount(){
+		const that = this;
+		window.removeEventListener("resize", that.forcedResizing());
+	}
     
 	render(){
 		return(
-            <div style={{height: 100}}>
+            <div style={{height: 134}}>
                 <div className="carousel" id="artCarousel">
                     <a href="#artModal1" className="carousel-item modal-trigger"><img src="https://i.imgur.com/lpFH0kC.png" /></a>
                     <a href="#artModal1" className="carousel-item modal-trigger"><img src="https://i.imgur.com/iucnj89.png" /></a>

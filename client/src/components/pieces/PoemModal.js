@@ -20,10 +20,9 @@ class PoemModal extends Component {
 		//client/src/art/cultbarn.png
 		return(
 			<div className="modal center" id="poemModal1" style={{backgroundColor: "#121716"}}>
-                <div className="modal-content center" style={{padding: 0}}>
-                    <img src={this.props.modalPoemImg} style={{maxHeight: 450, maxWidth: 300}}/>
+                <div href={this.props.modalPoemImg} className="modal-content center" style={{padding: 0}}>
+                    <a href={this.props.modalPoemImg} target="_top"><img src={this.props.modalPoemImg} style={{maxHeight: 450, maxWidth: 300}}/></a>
                 </div>
-
             </div>
 				
 		);

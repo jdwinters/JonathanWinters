@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import '../css/About.css';
 
 //Basically an About Me Page

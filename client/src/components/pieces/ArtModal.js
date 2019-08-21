@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import M from "materialize-css";
+import '../../css/ArtModal.css';
 
 class ArtModal extends Component {
     constructor(props, state){
@@ -21,9 +22,8 @@ class ArtModal extends Component {
 		return(
 			<div className="modal center" id="artModal1" style={{backgroundColor: "#121716"}}>
                 <div className="modal-content center" style={{padding: 0}}>
-                    <img src={this.props.modalArtImg} style={{maxHeight: 600, maxWidth: 450}}/>
+                    <img src={this.props.modalArtImg} onClick={() => window.open(this.props.modalArtImg, "_blank")} className="center"/>
                 </div>
-
             </div>
 				
 		);
