@@ -27,8 +27,11 @@ class Contact extends Component {
                 alert("Message Sent."); 
                 that.resetForm()
             }else if(response.data.msg === 'fail'){
-                alert("Message failed to send.")
-            }
+                alert("Message failed to send.");
+            }else if(response.data.msg === 'sending'){
+				alert("Message is sending.");
+				that.resetForm();
+			}
         })
 	}
 	

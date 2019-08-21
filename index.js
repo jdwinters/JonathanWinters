@@ -40,7 +40,6 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 
 app.post("/send", (req, res) => {
-  console.log(req.body);
   const output =
   `<p>You have a new contact request</p>
     <h3>Contact Details</h3>
@@ -76,17 +75,27 @@ app.post("/send", (req, res) => {
       text: "Brace yourself Winters is coming",
       html: output
     }
+    const DELAY = 20*60*1000;
     transporter.sendMail(mailOptions, (err, data) => {
+      console.log(err);
       if (err) {
-        res.json({
+        //res.sendStatus(500);
+        //console.log('Mail failed!! :(');
+        return res.json({
           msg: 'fail'
-        })
-      } else {
-        res.json({
+        });
+      } else{
+        //res.sendStatus(200);
+        //console.log('Mail sent to ' + mailOptions.to);
+        //res.send({ hello: 'world' });
+        return res.json({
           msg: 'success'
-        })
-        res.send({ hello: 'world' });
+        });
+        
       }
+      res.json({
+        msg: 'sending'
+      });
     });
 });
 
