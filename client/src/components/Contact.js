@@ -13,8 +13,9 @@ class Contact extends Component {
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
 		const message = document.getElementById('message').value;
+		var currentENV;
 		if(process.env.NODE_ENV === 'production'){
-			process.env.baseURL + "/send";
+			currentENV = process.env.baseURL + "/send";
 		}else{
 			//in dev
 			currentENV = "http://localhost:5000/send";
