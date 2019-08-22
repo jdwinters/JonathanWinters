@@ -52,7 +52,7 @@ oauth2Client = new OAuth2(
 oauth2Client.setCredentials({
   refresh_token: creds.REFRESH_TOKEN
 });
-const accessToken = oauth2Client.getAccessToken();
+
 
 app.post("/send", (req, res) => {
   console.log("Well shit, this worked.");
@@ -66,17 +66,29 @@ app.post("/send", (req, res) => {
     <h3>Message</h3>
     <p>${req.body.message}</p>
   `;
-    var transport = {
-      service: "gmail",
-      auth:{
-            type: "OAuth2",
-            user: "wintersfile@gmail.com", 
-            clientId: creds.CLIENT_ID,
-            clientSecret: creds.CLIENT_SECRET,
-            refreshToken: creds.REFRESH_TOKEN,
-            accessToken: accessToken
+  const accessToken = oauth2Client.getAccessToken();
+  var transport = {
+    service: "gmail",
+    auth:{
+          type: "OAuth2",
+          user: "wintersfile@gmail.com", 
+          clientId: creds.CLIENT_ID,
+          clientSecret: creds.CLIENT_SECRET,
+          refreshToken: creds.REFRESH_TOKEN,
+          accessToken: accessToken
       }
     }
+    // transporter = nodemailer.createTransport({ 
+    // host: 'smtp.gmail.com', 
+    // port: 465, 
+    // secure: true, 
+    // auth: { type: 'OAuth2', 
+    // user: GMAIL_EMAIL, 
+    // clientId: GMAIL_CLIENTID, 
+    // clientSecret: GMAIL_CLIENTSECRET, 
+    // refreshToken: GMAIL_REFRESHTOKEN, 
+    // accessToken: GMAIL_ACCESSTOKEN, }, });
+
     var transporter = nodemailer.createTransport(transport);
 
     transporter.verify((error, success) => {
