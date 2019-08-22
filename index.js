@@ -78,16 +78,6 @@ app.post("/send", (req, res) => {
           accessToken: accessToken
       }
     }
-    // transporter = nodemailer.createTransport({ 
-    // host: 'smtp.gmail.com', 
-    // port: 465, 
-    // secure: true, 
-    // auth: { type: 'OAuth2', 
-    // user: GMAIL_EMAIL, 
-    // clientId: GMAIL_CLIENTID, 
-    // clientSecret: GMAIL_CLIENTSECRET, 
-    // refreshToken: GMAIL_REFRESHTOKEN, 
-    // accessToken: GMAIL_ACCESSTOKEN, }, });
 
     var transporter = nodemailer.createTransport(transport);
 
@@ -106,6 +96,15 @@ app.post("/send", (req, res) => {
     }
     transporter.sendMail(mailOptions, (error, response) => {
       error ? console.log(error) : console.log(response);
+      if (error) {
+        res.json({
+          msg: 'fail'
+        })
+      } else {
+        res.json({
+          msg: 'success'
+        })
+      }
       transporter.close();
     });
     
