@@ -54,6 +54,7 @@ oauth2Client.setCredentials({
 const accessToken = oauth2Client.getAccessToken();
 
 app.post("/send", (req, res) => {
+  console.log("Well shit, this worked.");
   const output =
   `<p>You have a new contact request</p>
     <h3>Contact Details</h3>
