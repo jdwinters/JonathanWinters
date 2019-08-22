@@ -3,6 +3,16 @@ const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
 const nodemailer = require('nodemailer');
 var creds;
+//-------
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
+var oauth2Client = new OAuth2(
+  "Your ClientID Here",
+  "Your Client Secret Here", // Client Secret
+  "https://developers.google.com/oauthplayground" // Redirect URL
+);
+//-------
+
 
 const passport = require("passport");
 
@@ -23,17 +33,35 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
   creds = {
     USER: process.env.USER,
-    PASS: process.env.PASS
+    PASS: process.env.PASS,
+    CLIENT_ID: process.env.CLIENT_ID,
+    CLIENT_SECRET: process.env.CLIENT_SECRET,
+    REFRESH_TOKEN: process.env.REFRESH_TOKEN
   };
+  oauth2Client = new OAuth2(
+    creds.CLIENT_ID,
+    creds.CLIENT_SECRET, // Client Secret
+    "https://developers.google.com/oauthplayground" // Redirect URL
+  );
   const path = require("path");
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }else{
   creds = require('./config/config');
+  oauth2Client = new OAuth2(
+    creds.CLIENT_ID,
+    creds.CLIENT_SECRET, // Client Secret
+    "https://developers.google.com/oauthplayground" // Redirect URL
+  );
   const path = require("path");
   app.use('./client/public', express.static(path.join(__dirname, 'public')));
 }
+
+oauth2Client.setCredentials({
+  refresh_token: creds.REFRESH_TOKEN
+});
+const accessToken = oauth2Client.getAccessToken();
 
 // Body Parser Middleware
 app.use(bodyParser.urlencoded({ extended: false}));
@@ -51,16 +79,18 @@ app.post("/send", (req, res) => {
     <p>${req.body.message}</p>
   `;
     var transport = {
-      host: 'smtp.gmail.com',
-      port: 587,
-      secure: false,
-      auth: {
-        user: creds.USER,
-        pass: creds.PASS
+      service: "gmail",
+      auth:{
+            type: "OAuth2",
+            user: "wintersfile@gmail.com", 
+            clientId: creds.CLIENT_ID,
+            clientSecret: creds.CLIENT_SECRET,
+            refreshToken: creds.REFRESH_TOKEN,
+            accessToken: accessToken
       }
     }
-    
     var transporter = nodemailer.createTransport(transport);
+
     transporter.verify((error, success) => {
       if (error) {
         console.log(error);
@@ -72,31 +102,13 @@ app.post("/send", (req, res) => {
       from: req.body.name,
       to: 'wintersfile@gmail.com',  //Change to email address that you want to receive messages on
       subject: 'New Message from Contact Form',
-      text: "Brace yourself Winters is coming",
       html: output
     }
-    const DELAY = 20*60*1000;
-    transporter.sendMail(mailOptions, (err, data) => {
-      console.log(err);
-      if (err) {
-        //res.sendStatus(500);
-        //console.log('Mail failed!! :(');
-        return res.json({
-          msg: 'fail'
-        });
-      } else{
-        //res.sendStatus(200);
-        //console.log('Mail sent to ' + mailOptions.to);
-        //res.send({ hello: 'world' });
-        return res.json({
-          msg: 'success'
-        });
-        
-      }
-      res.json({
-        msg: 'sending'
-      });
+    transporter.sendMail(mailOptions, (error, response) => {
+      error ? console.log(error) : console.log(response);
+      transporter.close();
     });
+    
 });
 
 
