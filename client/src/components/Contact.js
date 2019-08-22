@@ -15,7 +15,7 @@ class Contact extends Component {
 		const message = document.getElementById('message').value;
 		var currentENV;
 		if(process.env.NODE_ENV === 'production'){
-			currentENV = process.env.baseURL + "/send";
+			currentENV = "https://jonathanwinters.herokuapp.com" + "/send";
 		}else{
 			//in dev
 			currentENV = "http://localhost:5000/send";
