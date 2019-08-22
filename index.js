@@ -1,16 +1,11 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
 const nodemailer = require('nodemailer');
 var creds;
 //-------
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
-var oauth2Client = new OAuth2(
-  "Your ClientID Here",
-  "Your Client Secret Here", // Client Secret
-  "https://developers.google.com/oauthplayground" // Redirect URL
-);
+var oauth2Client;
 //-------
 
 
@@ -38,34 +33,25 @@ if (process.env.NODE_ENV === "production") {
     CLIENT_SECRET: process.env.CLIENT_SECRET,
     REFRESH_TOKEN: process.env.REFRESH_TOKEN
   };
-  oauth2Client = new OAuth2(
-    creds.CLIENT_ID,
-    creds.CLIENT_SECRET, // Client Secret
-    "https://developers.google.com/oauthplayground" // Redirect URL
-  );
   const path = require("path");
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }else{
   creds = require('./config/config');
-  oauth2Client = new OAuth2(
-    creds.CLIENT_ID,
-    creds.CLIENT_SECRET, // Client Secret
-    "https://developers.google.com/oauthplayground" // Redirect URL
-  );
   const path = require("path");
   app.use('./client/public', express.static(path.join(__dirname, 'public')));
 }
 
+oauth2Client = new OAuth2(
+  creds.CLIENT_ID,
+  creds.CLIENT_SECRET, // Client Secret
+  "https://developers.google.com/oauthplayground" // Redirect URL
+);
 oauth2Client.setCredentials({
   refresh_token: creds.REFRESH_TOKEN
 });
 const accessToken = oauth2Client.getAccessToken();
-
-// Body Parser Middleware
-app.use(bodyParser.urlencoded({ extended: false}));
-app.use(bodyParser.json());
 
 app.post("/send", (req, res) => {
   const output =
