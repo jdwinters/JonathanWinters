@@ -1,15 +1,13 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const nodemailer = require('nodemailer');
+const bodyParser = require('body-parser');
 var creds;
 //-------
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 var oauth2Client;
 //-------
-
-
-const passport = require("passport");
 
 const app = express();
 
@@ -22,6 +20,9 @@ app.use(function (req, res, next) {
 // View engine setup
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
+
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
 
 // Static folder for 
 if (process.env.NODE_ENV === "production") {
