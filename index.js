@@ -97,11 +97,11 @@ app.post("/send", (req, res) => {
     transporter.sendMail(mailOptions, (error, response) => {
       error ? console.log(error) : console.log(response);
       if (error) {
-        response.json({
+        res.json({
           msg: 'fail'
         })
       } else {
-        response.json({
+        res.json({
           msg: 'success'
         })
       }
