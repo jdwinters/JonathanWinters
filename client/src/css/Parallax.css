@@ -16,6 +16,13 @@
   text-rendering: optimizeLegibility;
 }
 
+@media only screen and (min-width: 993px) {
+  #standard-background img {
+    max-width: 100%; /* or higher percentages. It's up to your taste */
+  }
+}
+
+
 @media (min-width: 993px) {
   .parallax-container {
     height: 500px;

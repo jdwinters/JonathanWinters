@@ -31,14 +31,11 @@ class Contact extends Component {
             }
         }).then((response)=>{
             if (response.data.msg === 'success'){
-				alert("Message Sent.");
 				M.toast({html: 'Message Sent.'});
                 that.resetForm()
             }else if(response.data.msg === 'fail'){
-				//alert("Message failed to send.");
 				M.toast({html: 'Message failed to send.'});
             }else if(response.data.msg === 'sending'){
-				//alert("Message is sending.");
 				that.resetForm();
 				M.toast({html: 'Message is sending.'});
 			}

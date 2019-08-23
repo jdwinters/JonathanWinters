@@ -20,7 +20,7 @@ class Parallax extends Component{
                         <p>{this.props.scrollTitle}</p>
                     </h1>        
                 </div>
-                <div className="parallax">
+                <div className="parallax" id="standard-background">
                     <img src="https://images.unsplash.com/photo-1495443396064-16fd983acb6a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80" />
                 </div>
             </div>
