@@ -25,7 +25,7 @@ class DevCarousel extends Component {
                             <span className="card-title activator white-text text-darken-4">Window Pane<i className="material-icons right">more_vert</i></span>
                             <p><a href="https://windowpanegame.com/">Window Pane Website</a></p>
                         </div>
-                        <div className="card-reveal" style={{backgroundColor: '#fee4a6', color: 'black'}}>
+                        <div className="card-reveal" style={{backgroundColor: '#14272E', color: 'white'}}>
                             <span className="card-title white-text text-darken-4">Window Pane<i className="material-icons right">close</i></span>
                             <p>Window Pane is a psychological adventure where you play as a student who is offered free housing in return for doing some experiemnts. Explore your new apartment as you unveil the events that are taking place around you. Are you really in control? Find out by downloading the executable (Coming to the website soon!) 
                             Window Pane is based on the MK Ultra experiments conducted by the CIA in the late 50s and 60s.</p>
@@ -39,7 +39,7 @@ class DevCarousel extends Component {
                         <span className="card-title activator white-text text-darken-4">3D WebGL Shader<i className="material-icons right">more_vert</i></span>
                         <p><a href="/webglexample">WebGL Example</a></p>
                         </div>
-                        <div className="card-reveal" style={{backgroundColor: '#f9c4aa', color: 'black'}}>
+                        <div className="card-reveal" style={{backgroundColor: '#14272E', color: 'white'}}>
                         <span className="card-title white-text text-darken-4">3D WebGL Shader<i className="material-icons right">close</i></span>
                         <p>Using Three.Js I created two cubes, one using Three.Js' cube mesh and the other I created by instancing each face mesh seperately and placing them together.
                             One's entire color can be changed by clicking, and the other has its faces change individually using right clicks.
@@ -52,9 +52,9 @@ class DevCarousel extends Component {
                     </div>
                     <div className="card-content carousel-card-content">
                         <span className="card-title activator white-text text-darken-4">GifFit<i className="material-icons right">more_vert</i></span>
-                        <p>Work in progress</p>
+                        <p style={{color: '#6E8F76'}}>Work in progress</p>
                     </div>
-                    <div className="card-reveal" style={{backgroundColor: '#f7f4e3', color: 'black'}}>
+                    <div className="card-reveal" style={{backgroundColor: '#14272E', color: 'white'}}>
                         <span className="card-title white-text text-darken-4">GifFit<i className="material-icons right">close</i></span>
                         <p>An app to explain workouts for specific muscle using the ease of gifs</p>
                     </div>
@@ -67,7 +67,7 @@ class DevCarousel extends Component {
                         <span className="card-title activator white-text text-darken-4">GuidEnts<i className="material-icons right">more_vert</i></span>
                         <p><a href="https://github.com/jdwinters/GuidEnts">Work in Progress</a></p>
                         </div>
-                        <div className="card-reveal" style={{backgroundColor: '#d2e1c8', color: 'black'}}>
+                        <div className="card-reveal" style={{backgroundColor: '#14272E', color: 'white'}}>
                         <span className="card-title white-text text-darken-4">GuidEnts<i className="material-icons right">close</i></span>
                         <p>An app to be a compilation of academic paths people have taken during their time in college.</p>
                         </div>
@@ -78,9 +78,9 @@ class DevCarousel extends Component {
                     </div>
                     <div className="card-content carousel-card-content">
                         <span className="card-title activator white-text text-darken-4">Cult of Ludic Arts<i className="material-icons right">more_vert</i></span>
-                        <p>Work in progress</p>
+                        <p style={{color: '#6E8F76'}}>Work in progress</p>
                     </div>
-                    <div className="card-reveal" style={{backgroundColor: '#fee4a6', color: 'black'}}>
+                    <div className="card-reveal" style={{backgroundColor: '#14272E', color: 'white'}}>
                         <span className="card-title white-text text-darken-4">COLA<i className="material-icons right">close</i></span>
                         <p>A future website for a collective of digital artists known as the Cult of Ludic Arts</p>
                     </div>
@@ -93,7 +93,7 @@ class DevCarousel extends Component {
                     <span className="card-title activator white-text text-darken-4">Inform7: Toni<i className="material-icons right">more_vert</i></span>
                     <p><a href="https://github.com/jdwinters/Inform7-Projects/archive/master.zip">Download</a></p>
                     </div>
-                    <div className="card-reveal" style={{backgroundColor: '#f9c4aa', color: 'black'}}>
+                    <div className="card-reveal" style={{backgroundColor: '#14272E', color: 'white'}}>
                     <span className="card-title white-text text-darken-4">Toni<i className="material-icons right">close</i></span>
                     <p>The tragic story about a woman whos past shattered her future told in the form of the interactive story framework, Inform7.</p>
                     </div>

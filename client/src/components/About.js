@@ -14,7 +14,6 @@ class About extends Component {
 						</p>
 					</div>			
 				</div>
-				<div className="center-align white-text">Skills</div>
 				<div className="row container" style={{marginBottom: 0}}>
 					<a className="waves-effect waves-teal btn-flat white-text col s4 m2 offset-m3 center">HTML</a>
 					<a className="waves-effect waves-teal btn-flat white-text col s4 m2 center">CSS</a>
@@ -30,12 +29,11 @@ class About extends Component {
 					<a className="waves-effect waves-teal btn-flat white-text col s4 m2 center">C++</a>
 					<a className="waves-effect waves-teal btn-flat white-text col s4 m2 center flow-text">C</a>
 				</div>
-				<div className="row container" style={{marginBottom: 0}}>
+				<div className="row container">
 					<a className="waves-effect waves-teal btn-flat white-text col s4 m2 offset-m3 center">Unreal</a>
 					<a className="waves-effect waves-teal btn-flat white-text col s4 m2 center">Unity</a>
 					<a className="waves-effect waves-teal btn-flat white-text col s4 m2 center flow-text">VR/AR</a>
 				</div>
-				
 			</div>
 
 			
@@ -44,18 +42,3 @@ class About extends Component {
 };
 
 export default About;
-
-{/* <a className="waves-effect waves-teal btn-flat white-text">HTML</a>
-<a className="waves-effect waves-teal btn-flat white-text">CSS</a>
-<a className="waves-effect waves-teal btn-flat white-text">JAVASCRIPT</a>
-<a className="waves-effect waves-teal btn-flat white-text">REACT</a>
-<a className="waves-effect waves-teal btn-flat white-text">.NET</a>
-<a className="waves-effect waves-teal btn-flat white-text">C++</a>
-<a className="waves-effect waves-teal btn-flat white-text">C#</a>
-<a className="waves-effect waves-teal btn-flat white-text">C</a>
-<a className="waves-effect waves-teal btn-flat white-text">Unity</a>
-<a className="waves-effect waves-teal btn-flat white-text">Unreal</a>
-<a className="waves-effect waves-teal btn-flat white-text">WebGL</a>
-<a className="waves-effect waves-teal btn-flat white-text">GLSL</a>
-<a className="waves-effect waves-teal btn-flat white-text">VR</a>
-<a className="waves-effect waves-teal btn-flat white-text">AR</a> */}
